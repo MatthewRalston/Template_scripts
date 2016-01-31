@@ -44,7 +44,7 @@ OptionParser.new do |opts|
   opts.on("-v", "--[no-]verbose","Run verbosely") do |v|
     options[:verbose] = v
   end
-  opts.on("-r", "--required","Error thrown without this flag") do |r|
+  opts.on("-r", "--required REQUIRED","Error thrown without this flag") do |r|
     options[:required] = r
   end
   opts.on("-o", "--optional", "This is an optional flag") do |o|
