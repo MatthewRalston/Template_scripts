@@ -1,0 +1,85 @@
+
+---
+# *** YAML2LOG4R ***
+log4r_config:
+  # define all pre config ...
+  pre_config:
+    custom_levels:
+      - DEBUG
+      - INFO
+      - WARN
+      - ERROR
+      - FATAL
+    global:
+      level: 'DEBUG'
+    root:
+      level: 'DEBUG'
+#    parameters:
+#      - name   : x
+#        value  : aaa
+#      - name   : y
+#        value  : bbb
+
+  # define all loggers ...
+  loggers:
+    - name      : root_logger
+      level     : DEBUG
+      additive  : 'false'
+      trace     : 'false'
+      outputters:
+        - stderr
+        - logfile
+#        - email
+#        - scribe
+
+  # define all outputters (incl. formatters)
+  outputters:
+    - type     : StderrOutputter
+      name     : stderr 
+      level    : WARN
+#      only_at  :
+#        - INF
+#        - WRN
+#        - FAT
+      formatter:
+        date_pattern: '%d-%m-%Y %H:%M:%S'
+        pattern     : '%l| %t: %M'
+        type        : PatternFormatter
+    - type        : FileOutputter
+      name        : logfile
+      level       : DEBUG
+      date_pattern: '%d-%m-%Y %H:%M:%S'
+      filename    : "#{LOGFILE}"
+      formatter   :
+        date_pattern: '%d-%m-%y %H:%M:%S'
+        pattern     : '%l | %d |%t: %M'
+        type        : PatternFormatter
+  
+    # - type        : EmailOutputter
+    #   name        : email
+    #   level       : FAT
+    #   server      : localhost
+    #   subject     : 'Message from #{PN}:'
+    #   from        : test@localhost
+    #   to          : anhu@localhost
+    #   immediate_at: FAT
+    #   formatfirst : 'true'
+    #   formatter   :
+    #     date_pattern: '%y%m%d %H:%M:%S'
+    #     pattern     : '%d %l: %m'
+    #     type        : PatternFormatter
+
+    # - type        : ScribeOutputter
+    #   name        : scribe
+    #   level       : DEB
+    #   host        : "127.0.0.1"
+    #   port        : "9090"
+    #   formatter   :
+    #     date_pattern: '%y%m%d %H:%M:%S'
+    #     pattern     : '%d %l: %m'
+    #     type        : PatternFormatter
+---
+
+  
+  
+  
