@@ -42,7 +42,18 @@ def get_root_logger(loglevel, logfile=None, log_config="/Users/Matthew/.config/p
         file_handler.format = log_format
         root_logger.addHandler(file_handler)
     return root_logger
-
+#def get_root_logger(loglevel):
+#    # Requires 'import logging' and 'import logging.config'
+#    def log_level(loglevel):
+#        case = {"DEBUG": logging.DEBUG,
+#                "INFO": logging.INFO,
+#                "WARNING": logging.WARNING,
+#                "ERROR": logging.ERROR}
+#        return case[loglevel.upper()]                
+#    logging.basicConfig(level=log_level(loglevel),format="%(levelname)s: %(asctime)s %(user)s %(funcName)sL%(lineno)s| %(message)s",datefmt="%Y/%m/%d %I:%M:%S %p")    
+#    root_logger = logging.getLogger()
+#    log_format = root_logger.handlers[0].format
+#    return root_logger
 
 ####################
 # OPTIONS AND MAIN
