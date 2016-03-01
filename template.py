@@ -50,7 +50,7 @@ def get_root_logger(loglevel, logfile=None, log_config="/Users/Matthew/.config/p
 #                "WARNING": logging.WARNING,
 #                "ERROR": logging.ERROR}
 #        return case[loglevel.upper()]                
-#    logging.basicConfig(level=log_level(loglevel),format="%(levelname)s: %(asctime)s %(user)s %(funcName)sL%(lineno)s| %(message)s",datefmt="%Y/%m/%d %I:%M:%S %p")    
+#    logging.basicConfig(level=log_level(loglevel),format="%(levelname)s: %(asctime)s %(funcName)s L%(lineno)s| %(message)s",datefmt="%Y/%m/%d %I:%M:%S %p")    
 #    root_logger = logging.getLogger()
 #    log_format = root_logger.handlers[0].format
 #    return root_logger
