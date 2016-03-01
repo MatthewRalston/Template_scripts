@@ -9,12 +9,15 @@
 ######################
 require 'optparse'
 require 'ostruct'
+require 'log4r'
+#require 'log4r/yamlconfigurator'
+include Log4r
 
 ######################
 # CONSTANTS
 ######################
-LOGCONFIG = "/Users/Matthew/.config/ruby/logger.yaml" 
-LOGFILE = "/Users/Matthew/logs/example.log"
+#LOGCONFIG = "/Users/Matthew/.config/ruby/logger.yaml" 
+#LOGFILE = "/Users/Matthew/logs/example.log"
 
 ######################
 # FUNCTIONS
@@ -22,15 +25,24 @@ LOGFILE = "/Users/Matthew/logs/example.log"
 
 
 
+# def create_root_logger
+#   ycfg = YamlConfigurator
+#   ycfg["LOGFILE"] = OPTIONS[:logfile]
+#   ycfg.load_yaml_file(LOGCONFIG)
+#   root_logger = Logger['root_logger']
+#   root_logger.outputters.select{|x| x.name == "stderr"}[0].level = Object.const_get OPTIONS[:log]
+#   root_logger.outputters.select
+#   root_logger
+# end
 def create_root_logger
-  ycfg = YamlConfigurator
-  ycfg["LOGFILE"] = OPTIONS[:logfile]
-  ycfg.load_yaml_file(LOGCONFIG)
-  root_logger = Logger['root_logger']
-  root_logger.outputters.select{|x| x.name == "stderr"}[0].level = Object.const_get OPTIONS[:log]
-  root_logger.outputters.select
+  root_logger = Logger.new('root_logger')
+  stderr = Log4r::StderrOutputter.new('stderr')
+  stderr.level = Object.const_get OPTIONS[:log]
+  formatter = Log4r::PatternFormatter.new(:pattern => "%d %l %t | %m"
+  root_logger.outputters << stderr
   root_logger
 end
+
 
 ######################
 # OPTIONS AND MAIN
@@ -38,6 +50,7 @@ end
 
 options=OpenStruct.new
 options.log = 'WARN' # Set defaults first
+#options.logfile = LOGFILE
 
 OptionParser.new do |opts|
   opts.banner = "Usage: example.rb [options] ARGV"
@@ -53,9 +66,9 @@ OptionParser.new do |opts|
   opts.on("-l", "--log-level LEVEL", [:FATAL,:ERROR,:WARNING,:INFO,:DEBUG], "Log level for stdout [FATAL, ERROR, WARNING, INFO, DEBUG]") do |l|
     options.log = l
   end
-  opts.on("-f", "--log-file", "Location of log file") do |f|
-    options.logfile = f
-  end
+  # opts.on("-f", "--log-file", "Location of log file") do |f|
+  #   options.logfile = f
+  # end
   opts.separator ""
   opts.separator "Common options:"
   # No argument, help is shown.
