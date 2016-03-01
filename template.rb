@@ -38,7 +38,8 @@ def create_root_logger
   root_logger = Logger.new('root_logger')
   stderr = Log4r::StderrOutputter.new('stderr')
   stderr.level = Object.const_get OPTIONS[:log]
-  formatter = Log4r::PatternFormatter.new(:pattern => "%d %l %t | %m"
+  formatter = Log4r::PatternFormatter.new(:pattern => "%d %l %t | %m")
+  stderr.formatter = formatter
   root_logger.outputters << stderr
   root_logger
 end
