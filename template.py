@@ -65,7 +65,7 @@ if __name__ == '__main__':
     parser.add_argument('--flag', help="This is a flag",action="store_true")
     parser.add_argument('--log-level', help="Prints warnings to console by default",default="WARNING",choices=["DEBUG","INFO","WARNING","ERROR"])
     parser.add_argument('--log-file', help="Print log to file.", default="/Users/Matthew/logs/example.log")
-    args.parser.parse_args()
+    args = parser.parse_args()
     # Set up the root logger
     root_logger=get_root_logger(args.log_level,logfile=args.log_file)
     # Main routine
