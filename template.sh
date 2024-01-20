@@ -40,7 +40,7 @@ then
 	;;
 
 	*)
-	echo "Unknown option: $key"
+	echo "Unknown option: $key" >2
 	exit 1
 	;;
     esac
@@ -48,10 +48,10 @@ then
 fi
 
 if [ $HELP == 1 ]; then
-    echo "Usage: example.sh [-r|--required REQUIRED]"
-    echo "Options:"
-    echo "        -o|--optional OPTIONAL"
-    echo "        -f|--flag"
-    echo "        -h|--help"
+    echo "Usage: example.sh [-r|--required REQUIRED]" >2
+    echo "Options:" >2
+    echo "        -o|--optional OPTIONAL" >2
+    echo "        -f|--flag" >2
+    echo "        -h|--help" >2
     exit 1
 fi

@@ -1,0 +1,21 @@
+# Configuring a new environment
+* Welcome!
+** This org file describes the process of configuring a new environment
+** ssh, gpg(2), pyenv/miniconda3, rvm, and more!
+* clone personal repositories
+** TODO dotfiles
+*** TODO .config
+*** TODO .emacs.d
+**** org-roam / org-roam-ui
+**** ess
+**** poly-markdown
+**** rustic
+**** sphinx-doc
+**** jedi
+*** TODO #comment out motd/asciiowl if necessary
+*** TODO test .bash_profile with '. .bash_profile' (not source)
+** TODO Template_scripts
+*** TODO install_environment.sh
+**** pyenv(-virtualenv)
+**** rvm
+* 

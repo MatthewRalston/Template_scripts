@@ -1,0 +1,44 @@
+# TODO list
+
+###################################
+#    Title: Untitled Project
+#    Author: Matt Ralston
+#    Date: 1/18/23
+#    Org/team: N/A
+###################################
+
+
+* Triage / Planning
+** TODO Describe project with summary
+** TODO Short-term objectives
+** TODO Long-term development goals
+* Summary
+** 
+* Short-term goals
+** TODO Project Summary
+** TODO README.md 
+*** template provided
+** Dependency list
+*** Anaconda/Miniconda
+**** Create depencency file
+***** conda list -e > conda.env
+**** Validate with fresh conda env
+***** conda create -n <name> --file conda.env
+***** OR existing conda env 'conda install --file conda.env'
+*** PyPI
+**** Create dependency file
+***** pip freeze > requirements.txt
+**** Validate with fresh python .venv
+***** pip install -e .
+***** python setup.py install
+** TODO Copyright/License/Author info 
+*** Apply header.txt to each script/module/etc.
+*** Include 'LICENSE.txt' with software repository. Examples are provided in 'LICENSE/'
+* Long-term goals
+** TODO Refactoring
+** TODO License header (header.txt) to each file.
+** 
+** TODO Unit tests
+* Branches/twig
+** main
+** feature-1 branch
